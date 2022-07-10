@@ -8,7 +8,7 @@ pessoa1: elevadores.User = elevadores.User(2, 5)
 pessoa4: elevadores.User = elevadores.User(3, 15)
 pessoa: elevadores.User = elevadores.User(4, 2)
 pessoa3: elevadores.User = elevadores.User(13, 4)
-# pessoa5: elevadores.User = elevadores.User(6, 7)
+pessoa5: elevadores.User = elevadores.User(101, 7)
 pessoa6: elevadores.User = elevadores.User(100, 49)
 
 listpessoas: List[elevadores.User] = []
@@ -17,7 +17,7 @@ listpessoas.append(pessoa1)
 listpessoas.append(pessoa2)
 listpessoas.append(pessoa3)
 listpessoas.append(pessoa4)
-# listpessoas.append(pessoa5)
+listpessoas.append(pessoa5)
 listpessoas.append(pessoa6)
 
 

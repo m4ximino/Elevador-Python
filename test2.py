@@ -15,7 +15,9 @@ pessoa5: el.User = el.User(6, 7)
 pessoa6: el.User = el.User(100, 49)
 pessoa10: el.User = el.User(100, 49)
 pessoa8: el.User = el.User(134, 90)
-pessoa7: el.User = el.User(236, 123)
+# pessoa7: el.User = el.User(236, 123)
+# pessoa11: el.User = el.User(245, 123)
+
 
 
 listpessoas: List[el.User] = []
@@ -26,16 +28,18 @@ listpessoas.append(pessoa3)
 listpessoas.append(pessoa4)
 listpessoas.append(pessoa5)
 listpessoas.append(pessoa6)
-listpessoas.append(pessoa7)
+# listpessoas.append(pessoa7)
 listpessoas.append(pessoa8)
 listpessoas.append(pessoa9)
 listpessoas.append(pessoa10)
+# listpessoas.append(pessoa11)
+
 
 
 for i in listpessoas:
     if i.origem < elevador1.limite: elevador1.add(i)
     elif i.origem > elevador1.limite and i.origem<elevador2.limite: elevador2.add(i)
-    elif i.origem > elevador2.limite and i.origem <elevador3.limite: elevador3.add(i)
+    # elif i.origem > elevador2.limite and i.origem <elevador3.limite: elevador3.add(i)
 
 elevador1.vizualizar_passageiros()
 elevador2.vizualizar_passageiros()
