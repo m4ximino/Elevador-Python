@@ -3,13 +3,13 @@ from typing import List
 
 
 andar: elevadores.Andar = elevadores.Andar(0,elevadores.Predio(300))
-pessoa: elevadores.User = elevadores.User(4, 2)
-pessoa1: elevadores.User = elevadores.User(2, 5)
 pessoa2: elevadores.User = elevadores.User(1, 5)
+pessoa1: elevadores.User = elevadores.User(2, 5)
+pessoa4: elevadores.User = elevadores.User(3, 15)
+pessoa: elevadores.User = elevadores.User(4, 2)
 pessoa3: elevadores.User = elevadores.User(13, 4)
-pessoa4: elevadores.User = elevadores.User(3, 25)
-pessoa5: elevadores.User = elevadores.User(6, 7)
-
+# pessoa5: elevadores.User = elevadores.User(6, 7)
+pessoa6: elevadores.User = elevadores.User(100, 49)
 
 listpessoas: List[elevadores.User] = []
 listpessoas.append(pessoa)
@@ -17,7 +17,8 @@ listpessoas.append(pessoa1)
 listpessoas.append(pessoa2)
 listpessoas.append(pessoa3)
 listpessoas.append(pessoa4)
-listpessoas.append(pessoa5)
+# listpessoas.append(pessoa5)
+listpessoas.append(pessoa6)
 
 
 el : elevadores.Elevador = elevadores.Elevador(andar)
