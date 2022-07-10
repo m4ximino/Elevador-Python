@@ -4,11 +4,11 @@ from typing import List
 
 andar: elevadores.Andar = elevadores.Andar(0,elevadores.Predio(300))
 pessoa: elevadores.User = elevadores.User(4, 2)
-pessoa1: elevadores.User = elevadores.User(5, 6)
-pessoa2: elevadores.User = elevadores.User(2, 5)
-pessoa3: elevadores.User = elevadores.User(13, 5)
+pessoa1: elevadores.User = elevadores.User(2, 5)
+pessoa2: elevadores.User = elevadores.User(1, 5)
+pessoa3: elevadores.User = elevadores.User(13, 4)
 pessoa4: elevadores.User = elevadores.User(3, 25)
-pessoa5: elevadores.User = elevadores.User(6, 27)
+pessoa5: elevadores.User = elevadores.User(6, 7)
 
 
 listpessoas: List[elevadores.User] = []

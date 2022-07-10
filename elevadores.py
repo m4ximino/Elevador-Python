@@ -82,7 +82,7 @@ class Elevador:
         self.atual: Andar = andar
         self.disp = True
         self.distino_passageiros = []
-
+        self.k = 0
     # Move o elevador até a pessoa
     def ir_ate_passageiro(self, pessoa:User, outras: List[User]):
         if self.locomover.numero < pessoa.origem:
@@ -127,19 +127,14 @@ class Elevador:
         outras: List[User] = []
         self.distancia_do_elevador(pessoas)
         self.ocupacao = len(pessoas)
-        k=0
         if self.capacidade - self.ocupacao < 0:
             print("apenas 6 podem subir no elevador de cada vez,\n outro elevador será enviado")
             # self.atual.troca(self.ocupacao[6:])
             # self.ocupacao = self.ocupacao[:5]
         for i in pessoas:
-            k+=1
             self.ir_ate_passageiro(i, outras)
             outras.append(i)
             pessoas = self.distancia_do_elevador(outras)
-            print(outras[k].origem)
-            # if abs(self.locomover.numero - i.destino) <= abs(self.locomover.numero - aux[k]) :
-            #     None
             # self.destino = Andar(i, Predio(300))
             # self.move(i)
             # self.atual = Andar(0, Predio(300))
@@ -154,7 +149,7 @@ class Elevador:
                 self.move(i.destino, outras)
 
 
-    def move(self, direcao, outras: User):
+    def move(self, direcao, outras: List[User]):
         if self.locomover.numero == direcao:
             self.ocupacao-=1
             print(f"Elevador chegou ao seu destino passageiro: ", direcao)
@@ -162,7 +157,9 @@ class Elevador:
             for j in outras:
                 if self.locomover.numero == j.destino:
                     outras.remove(j)
-            return outras
+            try:
+                return self.move(outras[0].destino, outras)
+            except IndexError as erro: return outras 
         elif self.locomover.numero < direcao:
             for j in outras:
                 if self.locomover.numero == j.destino:
