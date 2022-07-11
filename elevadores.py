@@ -132,10 +132,11 @@ class Elevador:
         if self.locomover.numero == direcao:
             self.ocupacao-=1
             print(f"Elevador chegou ao seu destino passageiro: ", direcao)
-            print(f"Quantidade de passageiros: ", self.ocupacao)
             for j in outras:
                 if self.locomover.numero == j.destino:
                     outras.remove(j)
+            for i in outras:
+                print(f"No elevador há {i.id}, do andar: {i.origem}, e vai até: {i.destino}")
             try:
                 return self.move(outras[0].destino, outras)
             except IndexError as erro: return outras 

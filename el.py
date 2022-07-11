@@ -54,21 +54,45 @@ class Elevador:
             
 def sincronia(elevador1:Elevador, elevador2:Elevador, elevador3: Elevador):
     try:
-        if elevador1.atual < elevador1.ocupacao[0].origem:
+        if elevador1.atual < elevador1.ocupacao[0].origem or elevador2.atual < elevador2.ocupacao[0].origem or elevador2.atual < elevador2.ocupacao[0].origem:
+            print(f"Elevador : {elevador1.id} está no piso: {elevador1.atual}")
             for i in elevador1.ocupacao:
                 if elevador1.atual == i.origem:
                     print(f"Elevador : {elevador1.id} pegou passageiro no piso : {elevador1.atual}")
                     elevador1.ocupacao.remove(i)
-            print(f"Elevador : {elevador1.id} está no piso: {elevador1.atual}")
             elevador1.atual+=1
+            print(f"Elevador : {elevador2.id} está no piso: {elevador2.atual}")
+            for i in elevador2.ocupacao:
+                if elevador2.atual == i.origem:
+                    print(f"Elevador : {elevador2.id} pegou passageiro no piso : {elevador2.atual}")
+                    elevador2.ocupacao.remove(i)
+            elevador2.atual+=1
+            print(f"Elevador : {elevador3.id} está no piso: {elevador3.atual}")
+            for i in elevador3.ocupacao:
+                if elevador3.atual == i.origem:
+                    print(f"Elevador : {elevador3.id} pegou passageiro no piso : {elevador3.atual}")
+                    elevador3.ocupacao.remove(i)
+            elevador3.atual+=1
             return sincronia(elevador1, elevador2, elevador3)
-        elif elevador1.atual > elevador1.ocupacao[0].origem:
+        elif elevador1.atual > elevador1.ocupacao[0].origem or elevador2.atual > elevador2.ocupacao[0].origem or elevador3.atual > elevador3.ocupacao[0].origem:
+            print(f"Elevador : {elevador1.id} está no piso: {elevador1.atual}")
             for i in elevador1.ocupacao:
                 if elevador1.atual == i.origem:
                     print(f"Elevador : {elevador1.id} pegou passageiro no piso : {elevador1.atual}")
                     elevador1.ocupacao.remove(i)
-            print(f"Elevador : {elevador1.id} está no piso: {elevador1.atual}")
             elevador1.atual-=1
+            print(f"Elevador : {elevador2.id} está no piso: {elevador2.atual}")
+            for i in elevador2.ocupacao:
+                if elevador2.atual == i.origem:
+                    print(f"Elevador : {elevador2.id} pegou passageiro no piso : {elevador2.atual}")
+                    elevador2.ocupacao.remove(i)
+            elevador2.atual-=1
+            print(f"Elevador : {elevador3.id} pegou passageiro no piso : {elevador3.atual}")
+            elevador3.ocupacao.remove(elevador1.ocupacao[0])
+            for i in elevador3.ocupacao:
+                if elevador3.atual == i.origem:
+                    print(f"Elevador : {elevador3.id} pegou passageiro no piso : {elevador3.atual}")
+                    elevador3.ocupacao.remove(i)
             return sincronia(elevador1, elevador2, elevador3)
         elif elevador1.atual == elevador1.ocupacao[0].origem:
             print(f"Elevador : {elevador1.id} pegou passageiro no piso : {elevador1.atual}")
@@ -77,57 +101,12 @@ def sincronia(elevador1:Elevador, elevador2:Elevador, elevador3: Elevador):
                 if elevador1.atual == i.origem:
                     print(f"Elevador : {elevador1.id} pegou passageiro no piso : {elevador1.atual}")
                     elevador1.ocupacao.remove(i)
-    except IndexError and ValueError and IndexError: 
-        None
-    
-    try:
-        if elevador2.atual < elevador2.ocupacao[0].origem:
-            for i in elevador2.ocupacao:
-                if elevador2.atual == i.origem:
-                    print(f"Elevador : {elevador2.id} pegou passageiro no piso : {elevador2.atual}")
-                    elevador2.ocupacao.remove(i)
-            print(f"Elevador : {elevador2.id} está no piso: {elevador2.atual}")
-            elevador2.atual+=1
-            return sincronia(elevador1, elevador2, elevador3)
-        elif elevador2.atual > elevador2.ocupacao[0].origem:
-            for i in elevador2.ocupacao:
-                if elevador2.atual == i.origem:
-                    print(f"Elevador : {elevador2.id} pegou passageiro no piso : {elevador2.atual}")
-                    elevador2.ocupacao.remove(i)
-            print(f"Elevador : {elevador2.id} está no piso: {elevador2.atual}")
-            elevador2.atual-=1
-            return sincronia(elevador1, elevador2, elevador3)
-        elif elevador2.atual == elevador2.ocupacao[0].origem:
             print(f"Elevador : {elevador2.id} pegou passageiro no piso : {elevador2.atual}")
             elevador2.ocupacao.remove(elevador2.ocupacao[0])
             for i in elevador2.ocupacao:
                 if elevador2.atual == i.origem:
                     print(f"Elevador : {elevador2.id} pegou passageiro no piso : {elevador2.atual}")
                     elevador2.ocupacao.remove(i)
-    except IndexError and ValueError and IndexError: 
-        None
-  
-                    
-                    
-                    
-    try:
-        if elevador3.atual < elevador3.ocupacao[0].origem:
-            for i in elevador3.ocupacao:
-                if elevador3.atual == i.origem:
-                    print(f"Elevador : {elevador3.id} pegou passageiro no piso : {elevador3.atual}")
-                    elevador3.ocupacao.remove(i)
-            print(f"Elevador : {elevador3.id} está no piso: {elevador3.atual}")
-            elevador3.atual+=1
-            return sincronia(elevador1, elevador2, elevador3)
-        elif elevador3.atual > elevador3.ocupacao[0].origem:
-            for i in elevador3.ocupacao:
-                if elevador3.atual == i.origem:
-                    print(f"Elevador : {elevador3.id} pegou passageiro no piso : {elevador3.atual}")
-                    elevador3.ocupacao.remove(i)
-            print(f"Elevador : {elevador3.id} está no piso: {elevador3.atual}")
-            elevador3.atual-=1
-            return sincronia(elevador1, elevador2, elevador3)
-        elif elevador3.atual == elevador3.ocupacao[0].origem: 
             print(f"Elevador : {elevador3.id} pegou passageiro no piso : {elevador3.atual}")
             elevador3.ocupacao.remove(elevador1.ocupacao[0])
             for i in elevador3.ocupacao:
@@ -136,4 +115,61 @@ def sincronia(elevador1:Elevador, elevador2:Elevador, elevador3: Elevador):
                     elevador3.ocupacao.remove(i)
     except IndexError and ValueError and IndexError: 
         None
+    
+    # try:
+    #     if elevador2.atual < elevador2.ocupacao[0].origem:
+    #         for i in elevador2.ocupacao:
+    #             if elevador2.atual == i.origem:
+    #                 print(f"Elevador : {elevador2.id} pegou passageiro no piso : {elevador2.atual}")
+    #                 elevador2.ocupacao.remove(i)
+    #         print(f"Elevador : {elevador2.id} está no piso: {elevador2.atual}")
+    #         elevador2.atual+=1
+    #         return sincronia(elevador1, elevador2, elevador3)
+    #     elif elevador2.atual > elevador2.ocupacao[0].origem:
+    #         print(f"Elevador : {elevador2.id} está no piso: {elevador2.atual}")
+    #         for i in elevador2.ocupacao:
+    #             if elevador2.atual == i.origem:
+    #                 print(f"Elevador : {elevador2.id} pegou passageiro no piso : {elevador2.atual}")
+    #                 elevador2.ocupacao.remove(i)
+    #         elevador2.atual-=1
+    #         return sincronia(elevador1, elevador2, elevador3)
+    #     elif elevador2.atual == elevador2.ocupacao[0].origem:
+    #         print(f"Elevador : {elevador2.id} pegou passageiro no piso : {elevador2.atual}")
+    #         elevador2.ocupacao.remove(elevador2.ocupacao[0])
+    #         for i in elevador2.ocupacao:
+    #             if elevador2.atual == i.origem:
+    #                 print(f"Elevador : {elevador2.id} pegou passageiro no piso : {elevador2.atual}")
+    #                 elevador2.ocupacao.remove(i)
+    # except IndexError and ValueError and IndexError: 
+    #     None
+  
+                    
+                    
+                    
+    # try:
+    #     if elevador3.atual < elevador3.ocupacao[0].origem:
+    #         for i in elevador3.ocupacao:
+    #             if elevador3.atual == i.origem:
+    #                 print(f"Elevador : {elevador3.id} pegou passageiro no piso : {elevador3.atual}")
+    #                 elevador3.ocupacao.remove(i)
+    #         print(f"Elevador : {elevador3.id} está no piso: {elevador3.atual}")
+    #         elevador3.atual+=1
+    #         return sincronia(elevador1, elevador2, elevador3)
+    #     elif elevador3.atual > elevador3.ocupacao[0].origem:
+    #         for i in elevador3.ocupacao:
+    #             if elevador3.atual == i.origem:
+    #                 print(f"Elevador : {elevador3.id} pegou passageiro no piso : {elevador3.atual}")
+    #                 elevador3.ocupacao.remove(i)
+    #         print(f"Elevador : {elevador3.id} está no piso: {elevador3.atual}")
+    #         elevador3.atual-=1
+    #         return sincronia(elevador1, elevador2, elevador3)
+    #     elif elevador3.atual == elevador3.ocupacao[0].origem: 
+    #         print(f"Elevador : {elevador3.id} pegou passageiro no piso : {elevador3.atual}")
+    #         elevador3.ocupacao.remove(elevador1.ocupacao[0])
+    #         for i in elevador3.ocupacao:
+    #             if elevador3.atual == i.origem:
+    #                 print(f"Elevador : {elevador3.id} pegou passageiro no piso : {elevador3.atual}")
+    #                 elevador3.ocupacao.remove(i)
+    # except IndexError and ValueError and IndexError: 
+    #     None
     
