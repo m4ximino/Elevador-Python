@@ -73,19 +73,19 @@ class Elevador:
                 self.dentro.append(self.esperando[0])
                 self.esperando.remove(self.esperando[0])
                 self.levar_passageiro()
-                self.levar_elevador()
             elif self.atual < self.esperando[0].origem:
                 self.move_elevador(subir)
-                self.levar_elevador()
             else:
                 self.move_elevador(descer)
-                self.levar_elevador()
+            self.levar_elevador()
+            
         except IndexError: None
     
     def levar_passageiro(self):
         if self.atual == self.dentro[0].destino:
                 print(f"Elevador chegou no destino de : {self.dentro[0].id}")
                 self.dentro.remove(self.dentro[0])
+                self.levar_passageiro()
         elif self.atual < self.dentro[0].destino:
                 self.move_elevador(subir)
                 self.levar_passageiro()
