@@ -1,21 +1,21 @@
-import main
+import elevador
 from typing import List
 
-elevador1: main.Elevador = main.Elevador(10, 100)
+elevador1: elevador.Elevador = elevador.Elevador(10, 100)
 
 
-pessoa: main.User = main.User("João",4, 2)
-pessoa1: main.User = main.User("Adriana",2, 5)
-pessoa2: main.User = main.User("Marcos",1, 5)
-pessoa3: main.User = main.User("Ivan",13, 4)
-# pessoa9: main.User = main.User(,100, 49)
-pessoa4: main.User = main.User("Lucas",3, 15)
-pessoa5: main.User = main.User("Geremias",6, 7)
-# pessoa6: main.User = main.User(100, 49)
-# pessoa10: main.User = main.User(100, 49)
-# pessoa8: main.User = main.User(134, 90)
+pessoa: elevador.User = elevador.User("João",4, 2)
+pessoa1: elevador.User = elevador.User("Adriana",2, 5)
+pessoa2: elevador.User = elevador.User("Marcos",1, 5)
+pessoa3: elevador.User = elevador.User("Ivan",13, 4)
+# pessoa9: elevador.User = elevador.User(,100, 49)
+pessoa4: elevador.User = elevador.User("Lucas",3, 15)
+pessoa5: elevador.User = elevador.User("Geremias",6, 7)
+# pessoa6: elevador.User = elevador.User(100, 49)
+# pessoa10: elevador.User = elevador.User(100, 49)
+# pessoa8: elevador.User = elevador.User(134, 90)
 
-listpessoas: List[main.User] = []
+listpessoas: List[elevador.User] = []
 listpessoas.append(pessoa)
 listpessoas.append(pessoa1)
 listpessoas.append(pessoa2)
