@@ -77,21 +77,23 @@ class Elevador:
                 self.move_elevador(subir)
             else:
                 self.move_elevador(descer)
-            self.levar_elevador()
+            return self.levar_elevador()
             
         except IndexError: None
     
     def levar_passageiro(self):
-        if self.atual == self.dentro[0].destino:
-                print(f"Elevador chegou no destino de : {self.dentro[0].id}")
-                self.dentro.remove(self.dentro[0])
-                self.levar_passageiro()
-        elif self.atual < self.dentro[0].destino:
-                self.move_elevador(subir)
-                self.levar_passageiro()
-        elif self.atual > self.dentro[0].destino:
-                self.move_elevador(descer)
-                self.levar_passageiro()  
+        try:
+            if self.atual == self.dentro[0].destino:
+                    print(f"Elevador chegou no destino de : {self.dentro[0].id}")
+                    self.dentro.remove(self.dentro[0])
+                    self.levar_passageiro()
+            elif self.atual < self.dentro[0].destino:
+                    self.move_elevador(subir)
+                    self.levar_passageiro()
+            elif self.atual > self.dentro[0].destino:
+                    self.move_elevador(descer)
+                    self.levar_passageiro()
+        except RecursionError and IndexError: None
     
     def move_elevador(self, direcao: int):
         if direcao == 1:

@@ -11,3 +11,4 @@ def last():
             pessoa: main.User = main.User(nome,origem,destino)
             elevador.add(pessoa)
         else: print("O elevador não pode ir até esse andar...")
+
