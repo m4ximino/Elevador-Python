@@ -118,6 +118,3 @@ class Elevador:
             if self.atual == i.destino:
                 print(f"Elevadou chegou no destino de : {i.id}")
                 self.dentro.remove(i)
-            
-            
-        
