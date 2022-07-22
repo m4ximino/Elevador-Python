@@ -40,5 +40,10 @@ for i in elevador1.esperando:
     
 elevador1.levar_elevador()
 
+
+for i in elevador1.esperando:
+    print(i.id, "Origem:",i.origem, "Destino:",i.destino)
+    
+
 for i in elevador1.dentro:
     print(i.id, "Origem:",i.origem, "Destino:",i.destino)
